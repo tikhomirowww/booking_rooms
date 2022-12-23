@@ -1,0 +1,49 @@
+.rooms_main{
+    /* height: 400px; */
+    width: 100%;
+}
+
+.rooms_item{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+}
+
+.rooms_header{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.room_content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.one_room{
+    border: 2px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.room_hour{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    height: 100px;
+}
+
+.room_name{
+    display: flex;
+    justify-content: center;
+}
+
+.room_cells{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

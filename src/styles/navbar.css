@@ -1,0 +1,28 @@
+.tasks_nav{
+    display: flex;
+    justify-content: center;
+}
+.nav-box{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 4px solid;
+    width: 90%;
+    align-items: center;
+}
+.nav-logo img{
+    width: 110px;
+}
+.nav-item{
+    font-size: 20px;
+    transition: 0.8s;
+    cursor: pointer;
+}
+.nav-item:hover{
+    background-color: black;
+    /* width: 30px;
+    height: 30px; */
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    transition: 0.8s;
+}
