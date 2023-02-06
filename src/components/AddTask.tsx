@@ -21,6 +21,7 @@ const AddTask = () => {
         window.location.reload()
         // setCategory('')
     }
+    
   return (
     <div style={{width: '100%', background: '#dddddd'}}>
         <div className="add_form">

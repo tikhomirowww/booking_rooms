@@ -12,7 +12,7 @@ const LoginPage: FC = () => {
     const bg: any = useRef(null)
 
     const [open, setOpen] = useState(false);
-    console.log(reg);
+    // console.log(reg);
     
     const handleOpen = () => {
         console.log(reg.current);
@@ -23,7 +23,7 @@ const LoginPage: FC = () => {
     }
     const handleClose = () => {
         reg.current.style.display = 'none';
-        bg.current.style.display = 'none'
+        bg.current.style.display = 'none';
     // setOpen(false);
     }
 

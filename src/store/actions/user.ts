@@ -2,7 +2,11 @@ import { AppDispatch } from "../store";
 import axios from "axios";
 import { postUser } from "../slices/users";
 
-const API = 'http://3.83.158.158/api/v1/'
+const API = 'http://3.83.158.158/api/v1/';
+
+const token = localStorage.getItem("tokens")
+    ? JSON.parse(localStorage.getItem("tokens")!)
+    : "";
 
 export const createUser = (name: string, email: string, password: string) => async (dispath: AppDispatch) => {
     let formData = new FormData();
@@ -40,3 +44,20 @@ export const loginUser = (name: string, password: string) => async (dispath: App
     }
 }
 
+export const logoutUser = () => async (dispatch: AppDispatch) => {
+    const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token.refresh}`,
+        },
+    };
+
+    try{
+        let res = await axios.post(`${API}accounts/logout/`, config);
+        dispatch(postUser(res.data));
+    }catch(e){
+        console.log(e);
+    }
+    localStorage.removeItem("tokens");
+    window.location.reload()
+}

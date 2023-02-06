@@ -26,3 +26,31 @@
     color: white;
     transition: 0.8s;
 }
+
+.nav-logo{
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.logout_btn_on{
+    display: static;
+    position: absolute;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: logout 0.7s forwards;
+}
+
+@keyframes logout {
+    0%{
+        opacity: 0;
+        transform: translateY(0px);
+    }100%{
+        opacity: 1;
+        transform: translateY(40px);
+    }
+}
+
+.logout_btn_off{
+    display: none;
+}

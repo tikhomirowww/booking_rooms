@@ -16,7 +16,6 @@ const Backlog = () => {
 
   const [completed, setCompleted] = useState(2)
 
-
   const [taskDet, setTaskDet] = useState(taskDetails)
   const [compl , setCompl] = useState(2);
   
@@ -40,7 +39,6 @@ const Backlog = () => {
     console.log(taskDet);
     console.log(taskDetails);
   }, [taskDetails])
-
 
   const handleInp = (e: any) => {
     if(e.target.name == "status"){
@@ -68,8 +66,6 @@ const Backlog = () => {
     // window.location.reload()
   }
 
-  
-  
   return (
     <>
     <div style={{width: '100%'}}>
