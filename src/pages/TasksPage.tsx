@@ -74,11 +74,11 @@ const TasksPage = () => {
           <div className="task-header">
           <div>
         <ul className='header_tasks_list'>
-            <li ref={ref} onClick={() => {turnActive(); hahdleColor()}}>Active</li>
-            <li ref={ref} onClick={() => {turnBacklog(); hahdleColor()}}>Backlog</li>
-            <li ref={ref} onClick={() => {turnAdd(); hahdleColor()}}>Add</li>
-            <li ref={ref} onClick={() => {turnCompleted(); hahdleColor()}}>Completed</li>
-            <li ref={ref} onClick={() => {turnIncompleted(); hahdleColor()}}>Incomplete</li>
+            <li onClick={turnActive}>Active</li>
+            <li onClick={turnBacklog}>Backlog</li>
+            <li onClick={turnAdd}>Add</li>
+            <li onClick={turnCompleted}>Completed</li>
+            <li onClick={turnIncompleted}>Incomplete</li>
         </ul>
     </div>
           </div>
