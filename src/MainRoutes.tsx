@@ -1,20 +1,18 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import MeetingsPage from './pages/MeetingsPage';
-import TasksPage from './pages/TasksPage';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import MainPage from "./pages/MainPage/MainPage";
 
 const MainRoutes = () => {
-let token = localStorage.getItem("tokens")
+  let token = localStorage.getItem("tokens");
 
   return (
     <>
-        <Routes>
-            <Route path='/' element={token ? (<TasksPage />) : (<LoginPage />)} />
-            <Route path='/meetings' element={<MeetingsPage />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={token ? <MainPage /> : <LoginPage />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;

@@ -1,0 +1,81 @@
+.schedule_table {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 480px;
+}
+
+.schedule_block {
+  width: 70%;
+  border: 1px solid;
+}
+
+.hour_item {
+  display: flex;
+  align-items: center;
+  padding: 0 3%;
+  justify-content: space-between;
+}
+
+.hour_item p {
+  display: flex;
+  justify-content: center;
+  /* align-items: start; */
+  margin-bottom: 2%;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.table_head {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.table_head button {
+  height: 27px;
+  width: 40px;
+  margin-left: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.schedule_table h3 {
+  margin-left: 10px;
+}
+
+.text_item {
+  width: 35%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  width: 100px;
+}
+
+.text_item p {
+  margin-left: 30px;
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  overflow-y: hidden;
+  transition: height 0.8s ease-in-out;
+}
+
+.accordion-content.opened {
+  height: 700px;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.hour_item:nth-child(odd) {
+  background-color: lightgrey;
+}

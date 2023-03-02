@@ -1,20 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IDetails } from "../../types/user"
+import { IDetails } from "../../types/user";
 
 const initialState = {
-    user: {} as IDetails
-}
+  users: [],
+  user: {} as IDetails,
+  token: "",
+  error: "",
+};
 
 const usersSlice = createSlice({
-    name: "user",
-    initialState,
-    reducers: {
-        postUser(state, action) {
-            console.log(action);  
-            state.user = action.payload
-        }
-    }
-})
+  name: "user",
+  initialState,
+  reducers: {
+    postUser(state, action) {
+      state.user = action.payload;
+    },
+    getUsers(state, action) {
+      state.users = action.payload;
+    },
+    getToken(state, action) {
+      state.users = action.payload;
+    },
+    setError(state, action) {
+      state.error = action.payload;
+    },
+  },
+});
 
-export const usersReducer = usersSlice.reducer
-export const { postUser } = usersSlice.actions
+export const usersReducer = usersSlice.reducer;
+export const { postUser, getUsers, getToken, setError } = usersSlice.actions;

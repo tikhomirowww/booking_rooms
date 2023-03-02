@@ -1,17 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IRooms } from "../../types/rooms";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { fetchRooms } from "../actions/rooms";
-
-const API = "http://3.83.158.158/api/v1/";
 
 const initialState = {
   rooms: [],
   roomDetails: {} as IRooms,
 };
-
-// console.log(roomDetails);
 
 const roomsSlice = createSlice({
   name: "rooms",
@@ -23,11 +16,6 @@ const roomsSlice = createSlice({
     getRoomDetails(state, action) {
       state.roomDetails = action.payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchRooms.fulfilled, (state: any, action) => {
-      state.roomDetails = action.payload;
-    });
   },
 });
 

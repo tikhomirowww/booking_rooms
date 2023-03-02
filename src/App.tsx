@@ -1,7 +1,7 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import MainRoutes from './MainRoutes';
-import LoginPage from './pages/LoginPage';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import MainRoutes from "./MainRoutes";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
         <MainRoutes />
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
