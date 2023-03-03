@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react";
 import Month from "../../components/Month/Month";
 import { IMeeting } from "./Meeting.types";
-import close from "../../icons/close.png";
+import { CgCloseR } from "react-icons/cg";
 
 const Meeting: FC<IMeeting> = ({ set, state, openSchedule, closeSchedule }) => {
   return (
@@ -24,7 +24,7 @@ const Meeting: FC<IMeeting> = ({ set, state, openSchedule, closeSchedule }) => {
               }}
               className="close_btn"
             >
-              <img src={close} alt="" />
+              <CgCloseR className="svg" />
             </div>
             <Month />
           </>

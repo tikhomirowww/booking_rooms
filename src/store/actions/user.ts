@@ -53,7 +53,6 @@ export const loginUser =
       window.location.reload();
     } catch (e: any) {
       dispath(setError(e.response.data.detail));
-      console.log(e);
     }
   };
 

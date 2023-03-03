@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import IStudio from "./Studio.types";
 import Month from "../../components/Month/Month";
-import close from "../../icons/close.png";
+import { CgCloseR } from "react-icons/cg";
 
 const Studio: FC<IStudio> = ({ set, state, openSchedule, closeSchedule }) => {
   return (
@@ -23,7 +23,7 @@ const Studio: FC<IStudio> = ({ set, state, openSchedule, closeSchedule }) => {
             }}
             className="close_btn"
           >
-            <img src={close} alt="" />
+            <CgCloseR className="svg" />
           </div>
           <Month />
         </>

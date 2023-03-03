@@ -7,6 +7,10 @@ import ISchedule from "./Schedule.types";
 import { fetchUsers } from "../../store/actions/user";
 import { MeetingType, ProductionType, StudioType } from "./Schedule.types";
 import { deleteHour, createHour } from "../../store/actions/rooms";
+import { CgCloseR } from "react-icons/cg";
+import { AiOutlineDownSquare } from "react-icons/ai";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import "./schedule.css";
 
 const Schedule: FC<ISchedule> = ({ state, setOpenFunc, isOpen }) => {
@@ -227,9 +231,16 @@ const Schedule: FC<ISchedule> = ({ state, setOpenFunc, isOpen }) => {
     <div className="schedule_table">
       <div className="table_head">
         {" "}
-        <button onClick={() => setOpenFunc((pre: boolean) => !pre)}>
-          {isOpen ? <img src={close} alt="" /> : <img src={arrow} alt="" />}
-        </button>
+        <div
+          className="svg_container"
+          onClick={() => setOpenFunc((pre: boolean) => !pre)}
+        >
+          {isOpen ? (
+            <CgCloseR className="svg" />
+          ) : (
+            <AiOutlineDownSquare className="svg" />
+          )}
+        </div>
         <h3>Schedule</h3>
       </div>
 
@@ -241,23 +252,21 @@ const Schedule: FC<ISchedule> = ({ state, setOpenFunc, isOpen }) => {
               {item.user ? (
                 <div className="user">{item.user}</div>
               ) : (
-                <button
+                <IoIosAddCircleOutline
                   onClick={() => {
                     dispatch(createHour(room[0].id, item.hour));
                   }}
-                >
-                  Add
-                </button>
+                  className="svg"
+                />
               )}
             </div>
             {item.user ? (
-              <button
+              <RiDeleteBin6Line
+                className="svg"
                 onClick={() => {
                   dispatch(deleteHour(room[0].id, item.hour));
                 }}
-              >
-                Delete
-              </button>
+              />
             ) : (
               ""
             )}

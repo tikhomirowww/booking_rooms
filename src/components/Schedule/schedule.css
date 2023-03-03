@@ -2,12 +2,23 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 480px;
+  height: 510px;
 }
 
 .schedule_block {
   width: 70%;
   border: 1px solid;
+}
+
+.svg_container {
+  margin-left: 3%;
+}
+
+.svg {
+  display: block;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
 }
 
 .hour_item {
@@ -56,6 +67,9 @@
 
 .user {
   width: 100px;
+  margin-left: 70px;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .text_item p {
@@ -77,5 +91,5 @@
   display: none;
 }
 .hour_item:nth-child(odd) {
-  background-color: lightgrey;
+  background-color: lightsteelblue;
 }

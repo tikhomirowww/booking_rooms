@@ -5,26 +5,25 @@ import { loginUser } from "../../store/actions/user";
 import { useAppDispatch } from "../../store/hooks";
 import { useSelector } from "react-redux";
 import "./login.css";
+import Button from "../../ui/Button/Button";
+import Modal from "../../ui/Modal/Modal";
+import Input from "../../ui/Input/Input";
 
 const LoginPage: FC = () => {
+  const [regModal, setRegModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const navigate = useNavigate();
+
+  const openRegister = () => {
+    setRegModal(true);
+  };
+
+  const openLogin = () => {
+    setLoginModal(true);
+  };
+
   const dispatch = useAppDispatch();
-  const reg: any = useRef(null);
-  const bg: any = useRef(null);
-
-  const handleOpen = () => {
-    console.log(reg.current);
-
-    reg.current.style.display = "flex";
-    bg.current.style.display = "block";
-  };
-  const handleClose = () => {
-    reg.current.style.display = "none";
-    bg.current.style.display = "none";
-  };
-
-  const [open2, setOpen2] = useState(false);
-  const handleOpen2 = () => setOpen2(true);
-  const handleClose2 = () => setOpen2(false);
 
   // registration
   const [username, setUsername] = useState("");
@@ -41,7 +40,7 @@ const LoginPage: FC = () => {
     } else if (pass.length < 8) {
       alert("Your password must include at least 8 symbols");
       return;
-    } else if (!email.includes("@gmail." || "@mail")) {
+    } else if (!email.includes("@gmail.") || !email.includes("mail.")) {
       alert("Enter a valid email");
       return;
     }
@@ -53,7 +52,10 @@ const LoginPage: FC = () => {
   const [username2, setUsername2] = useState("");
   const [pass2, setPass2] = useState("");
 
-  const navigate = useNavigate();
+  const login = () => {
+    dispatch(loginUser(username2, pass2));
+    navigate("/");
+  };
 
   return (
     <div className="main_login">
@@ -71,81 +73,64 @@ const LoginPage: FC = () => {
         <img src="/images/makers_logo.png" alt="error" />
       </div>
       <div className="login_desc">
-        <h2>Organize your work deals easily!</h2>
+        <h2>Register to start!</h2>
         <p>
-          Become focused, organized, and calm with "Makers Todo-List". The
-          world’s #1 task manager!
+          This app will allow you to book the rooms and other users will see it!
         </p>
-        <button onClick={handleOpen}>Sign up for free</button>
-        <p onClick={handleOpen2}>Log in</p>
-      </div>
-      {/* modal_register */}
-      <div
-        ref={bg}
-        style={{ display: "none" }}
-        onClick={handleClose}
-        className="modal_bg"
-      />
-      <div ref={reg} style={{ display: "none" }} className="modal_register">
-        <h3>Registration</h3>
-        {error && <h3>{error}</h3>}
-        <div className="inputs">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="register_inp"
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            className="register_inp"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Password"
-            className="register_inp"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-          />
+        <Button className="hello" onClick={openRegister}>
+          Register
+        </Button>
+        <div className="login_btn" onClick={openLogin}>
+          Log in
         </div>
-        <button onClick={register}>Register</button>
       </div>
-      {/* modal_login */}
-      {open2 && <div onClick={handleClose2} className="modal_bg" />}
-      {open2 && (
-        <div className="modal_login">
-          <h3>Login</h3>
-          {error && <h3>{error}</h3>}
-          <div className="inputs2">
-            <input
-              type="text"
-              placeholder="Username"
-              value={username2}
-              onChange={(e) => setUsername2(e.target.value)}
-              className="register_inp"
-            />
-            <input
-              type="text"
-              placeholder="Password"
-              value={pass2}
-              onChange={(e) => setPass2(e.target.value)}
-              className="register_inp"
-            />
-          </div>
-          <button
-            onClick={() => {
-              dispatch(loginUser(username2, pass2));
-              navigate("/");
-            }}
-          >
-            Log in
-          </button>
-        </div>
-      )}
+      <Modal
+        title="Registration"
+        button="Sign up"
+        isOpen={regModal}
+        onClose={() => {
+          setRegModal(false);
+          setUsername("");
+          setEmail("");
+          setPass("");
+        }}
+        onClick={register}
+      >
+        <Input
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
+        />
+        <Input
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <Input
+          placeholder="Password"
+          onChange={(e) => setPass(e.target.value)}
+          value={pass}
+        />
+      </Modal>
+      <Modal
+        title="Login"
+        button="Sign in"
+        error={error}
+        isOpen={loginModal}
+        onClose={() => setLoginModal(false)}
+        onClick={login}
+      >
+        <Input
+          placeholder="Username"
+          value={username2}
+          onChange={(e) => setUsername2(e.target.value)}
+        />
+        <Input
+          placeholder="Password"
+          value={pass2}
+          onChange={(e) => setPass2(e.target.value)}
+        />
+      </Modal>
     </div>
   );
 };

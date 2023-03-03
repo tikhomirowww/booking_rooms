@@ -1,56 +1,57 @@
-.tasks_nav{
-    display: flex;
-    justify-content: center;
+.tasks_nav {
+  display: flex;
+  justify-content: center;
 }
-.nav-box{
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 4px solid;
-    width: 90%;
-    align-items: center;
+.nav-box {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 4px solid;
+  width: 90%;
+  align-items: center;
 }
-.nav-logo img{
-    width: 110px;
+.nav-logo img {
+  width: 110px;
 }
-.nav-item{
-    font-size: 20px;
-    transition: 0.8s;
-    cursor: pointer;
+.nav-item {
+  font-size: 20px;
+  transition: 0.8s;
+  cursor: pointer;
 }
-.nav-item:hover{
-    background-color: black;
-    /* width: 30px;
+.nav-item:hover {
+  background-color: black;
+  /* width: 30px;
     height: 30px; */
-    padding: 20px;
-    border-radius: 20px;
-    color: white;
-    transition: 0.8s;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  transition: 0.8s;
 }
 
-.nav-logo{
-    position: relative;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+.nav-logo {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
-.logout_btn_on{
-    display: static;
-    position: absolute;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-    animation: logout 0.7s forwards;
+.logout_btn_on {
+  display: static;
+  position: absolute;
+  animation: logout 0.7s forwards;
+  font-size: 13px;
 }
 
 @keyframes logout {
-    0%{
-        opacity: 0;
-        transform: translateY(0px);
-    }100%{
-        opacity: 1;
-        transform: translateY(40px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(45px);
+  }
 }
 
-.logout_btn_off{
-    display: none;
+.logout_btn_off {
+  display: none;
 }

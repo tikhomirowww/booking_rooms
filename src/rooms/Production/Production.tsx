@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Calendar } from "react-calendar";
 import { IProduction } from "./Production.types";
-import close from "../../icons/close.png";
+import { CgCloseR } from "react-icons/cg";
 
 const Production: FC<IProduction> = ({
   set,
@@ -28,7 +28,7 @@ const Production: FC<IProduction> = ({
             }}
             className="close_btn"
           >
-            <img src={close} alt="" />
+            <CgCloseR className="svg" />
           </div>
           <Calendar />{" "}
         </>
