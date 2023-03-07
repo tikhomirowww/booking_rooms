@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import { IButton } from "./Button.types";
+import "./adaptiveButton.css";
 import "./Button.css";
 
 const Button: FC<IButton> = ({

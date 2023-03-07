@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { getRooms } from "../../store/actions/rooms";
 import { useAppDispatch } from "../../store/hooks";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./month.css";
+import "./adaptiveMonth.css";
+import { IMonth } from "./Month.types";
 
-const Month = () => {
+const Month: FC<IMonth> = ({ openSideBar }) => {
   const dispatch = useAppDispatch();
 
   const date = new Date();
@@ -38,8 +40,10 @@ const Month = () => {
   return (
     <div>
       <Calendar
-        onClickDay={(value) => {
+        onClickDay={(value, e) => {
+          e.stopPropagation();
           setSelected(value);
+          openSideBar();
         }}
       />
     </div>

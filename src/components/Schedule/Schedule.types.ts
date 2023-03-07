@@ -3,6 +3,8 @@ export default interface ISchedule {
   //   setOpenFunc: (pre: boolean) => boolean;
   setOpenFunc: any;
   isOpen: boolean;
+  sideBar: boolean;
+  closeSideBar: () => void;
 }
 
 export type MeetingType = {

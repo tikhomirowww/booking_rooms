@@ -1,6 +1,7 @@
 .rooms_main {
   display: flex;
   width: 100%;
+  gap: 2%;
 }
 
 .task_content {
@@ -18,6 +19,7 @@
   flex-direction: column;
   width: 100%;
   justify-content: space-around;
+  gap: 3%;
 }
 
 .room_item_main {
@@ -32,8 +34,8 @@
   height: 100%;
   border: 1px solid;
   padding: 3%;
-  /* border-radius: 10px; */
-  /* margin: 2%; */
+  border-radius: 10px;
+  background: #c6d0dd;
 }
 
 .close_btn {

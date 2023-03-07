@@ -1,0 +1,85 @@
+@media all and (max-width: 426px) {
+  .react-calendar {
+    width: 265px;
+  }
+
+  .react-calendar__navigation__label span {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    font-size: 13px;
+  }
+
+  .react-calendar__month-view {
+    font-size: 15px;
+  }
+
+  .react-calendar__month-view div {
+    width: 200px;
+  }
+
+  .react-calendar__month-view__days {
+    width: 250px !important;
+  }
+
+  .react-calendar__month-view__weekdays {
+    width: 250px !important;
+  }
+}
+
+@media all and (max-width: 366px) {
+  .react-calendar {
+    width: 235px;
+  }
+
+  .react-calendar__month-view__weekdays {
+    width: 230px !important;
+  }
+
+  .react-calendar__month-view__weekdays__weekday abbr {
+    font-size: 11px;
+  }
+
+  .react-calendar__month-view__days {
+    width: 230px !important;
+  }
+
+  .react-calendar__navigation {
+    height: 60px;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 336px) {
+  .react-calendar {
+    width: 205px;
+  }
+
+  .react-calendar__month-view__weekdays {
+    width: 100% !important;
+  }
+
+  .react-calendar__month-view__days {
+    width: 100% !important;
+  }
+
+  .react-calendar__navigation {
+    height: 45px;
+    width: 100%;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 20px;
+    width: 15%;
+    min-width: 0;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    font-size: 6px;
+  }
+}

@@ -3,4 +3,6 @@ export interface IProduction {
   state?: string;
   openSchedule: () => void;
   closeSchedule: () => void;
+  openSideBar: () => void;
+  closeSideBar: () => void;
 }

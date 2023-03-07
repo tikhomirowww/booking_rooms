@@ -1,0 +1,32 @@
+@media all and (max-width: 426px) {
+  .pencil_img {
+    display: none;
+  }
+
+  .vector1 {
+    display: none;
+  }
+
+  .logo_box img {
+    width: 120px;
+  }
+
+  .login_desc h2 {
+    font-size: 30px;
+  }
+
+  .login_desc p {
+    font-size: 18px;
+  }
+
+  .login_btn {
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 426px) {
+  .login_desc p {
+    font-size: 17px;
+    line-height: 27px;
+  }
+}

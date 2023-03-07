@@ -3,7 +3,13 @@ import IStudio from "./Studio.types";
 import Month from "../../components/Month/Month";
 import { CgCloseR } from "react-icons/cg";
 
-const Studio: FC<IStudio> = ({ set, state, openSchedule, closeSchedule }) => {
+const Studio: FC<IStudio> = ({
+  set,
+  state,
+  openSideBar,
+  openSchedule,
+  closeSchedule,
+}) => {
   return (
     <div
       onClick={() => {
@@ -25,7 +31,7 @@ const Studio: FC<IStudio> = ({ set, state, openSchedule, closeSchedule }) => {
           >
             <CgCloseR className="svg" />
           </div>
-          <Month />
+          <Month openSideBar={openSideBar} />
         </>
       )}
     </div>

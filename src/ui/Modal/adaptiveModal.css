@@ -1,0 +1,19 @@
+@media all and (max-width: 426px) {
+  .modal {
+    width: 60% !important;
+  }
+
+  .modal_children {
+    align-items: center;
+  }
+
+  .modal h3 {
+    font-size: 30px !important;
+  }
+}
+
+@media all and (max-width: 426px) {
+  .modal h3 {
+    font-size: 25px !important;
+  }
+}

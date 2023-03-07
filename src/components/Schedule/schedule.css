@@ -3,6 +3,12 @@
   flex-direction: column;
   overflow: hidden;
   height: 510px;
+  background: linear-gradient(
+    273.38deg,
+    rgb(237, 198, 138) 7.24%,
+    rgb(225, 167, 130) 56.44%,
+    rgb(215, 132, 120) 92.81%
+  );
 }
 
 .schedule_block {
@@ -87,9 +93,11 @@
   height: 700px;
   overflow: auto;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
+
 .hour_item:nth-child(odd) {
   background-color: lightsteelblue;
 }

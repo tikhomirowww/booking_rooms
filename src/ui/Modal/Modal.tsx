@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { IModal } from "./Modal.types";
 import Button from "../Button/Button";
+import "./adaptiveModal.css";
 import "./Modal.css";
 
 const Modal: FC<IModal> = ({

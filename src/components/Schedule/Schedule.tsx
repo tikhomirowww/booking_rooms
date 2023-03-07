@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { useSelector } from "react-redux";
 import arrow from "../../icons/arrow.png";
@@ -11,9 +11,16 @@ import { CgCloseR } from "react-icons/cg";
 import { AiOutlineDownSquare } from "react-icons/ai";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import "./adaptiveSchedule.css";
 import "./schedule.css";
 
-const Schedule: FC<ISchedule> = ({ state, setOpenFunc, isOpen }) => {
+const Schedule: FC<ISchedule> = ({
+  state,
+  setOpenFunc,
+  isOpen,
+  sideBar,
+  closeSideBar,
+}) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchUsers());
@@ -227,53 +234,69 @@ const Schedule: FC<ISchedule> = ({ state, setOpenFunc, isOpen }) => {
     },
   ];
 
-  return (
-    <div className="schedule_table">
-      <div className="table_head">
-        {" "}
-        <div
-          className="svg_container"
-          onClick={() => setOpenFunc((pre: boolean) => !pre)}
-        >
-          {isOpen ? (
-            <CgCloseR className="svg" />
-          ) : (
-            <AiOutlineDownSquare className="svg" />
-          )}
-        </div>
-        <h3>Schedule</h3>
-      </div>
+  console.log(sideBar, "sidebarrrrrrrrrrrrrrrr");
 
-      <div className={`accordion-content ${isOpen ? "opened" : ""}`}>
-        {li.map((item: any) => (
-          <div key={item.hour} className="hour_item">
-            <div className="text_item">
-              <h3>{item.text}</h3>
-              {item.user ? (
-                <div className="user">{item.user}</div>
-              ) : (
-                <IoIosAddCircleOutline
-                  onClick={() => {
-                    dispatch(createHour(room[0].id, item.hour));
-                  }}
-                  className="svg"
-                />
-              )}
-            </div>
-            {item.user ? (
-              <RiDeleteBin6Line
-                className="svg"
-                onClick={() => {
-                  dispatch(deleteHour(room[0].id, item.hour));
-                }}
-              />
+  return (
+    <>
+      {sideBar && (
+        <div
+          onClick={closeSideBar}
+          style={{ display: "none" }}
+          className="modal_bg"
+        ></div>
+      )}
+      <div className={`schedule_table ${sideBar ? "sidebar" : ""}`}>
+        <div className="table_head">
+          {" "}
+          <div
+            className="svg_container"
+            onClick={() => {
+              setOpenFunc((pre: boolean) => !pre);
+              closeSideBar();
+            }}
+          >
+            {isOpen ? (
+              <CgCloseR className="svg" />
             ) : (
-              ""
+              <AiOutlineDownSquare className="svg" />
             )}
           </div>
-        ))}
+          <h3>Schedule</h3>
+        </div>
+
+        <div
+          className={`accordion-content ${isOpen || sideBar ? "opened" : ""}`}
+        >
+          {li.map((item: any) => (
+            <div key={item.hour} className="hour_item">
+              <div className="text_item">
+                <h3>{item.text}</h3>
+                {item.user ? (
+                  <div className="user">{item.user}</div>
+                ) : (
+                  <IoIosAddCircleOutline
+                    onClick={() => {
+                      dispatch(createHour(room[0].id, item.hour));
+                    }}
+                    className="svg"
+                  />
+                )}
+              </div>
+              {item.user ? (
+                <RiDeleteBin6Line
+                  className="svg"
+                  onClick={() => {
+                    dispatch(deleteHour(room[0].id, item.hour));
+                  }}
+                />
+              ) : (
+                ""
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

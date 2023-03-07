@@ -2,10 +2,12 @@ import React, { FC } from "react";
 import { Calendar } from "react-calendar";
 import { IProduction } from "./Production.types";
 import { CgCloseR } from "react-icons/cg";
+import Month from "../../components/Month/Month";
 
 const Production: FC<IProduction> = ({
   set,
   state,
+  openSideBar,
   openSchedule,
   closeSchedule,
 }) => {
@@ -30,7 +32,7 @@ const Production: FC<IProduction> = ({
           >
             <CgCloseR className="svg" />
           </div>
-          <Calendar />{" "}
+          <Month openSideBar={openSideBar} />
         </>
       )}
     </div>

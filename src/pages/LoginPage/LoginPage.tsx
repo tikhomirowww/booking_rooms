@@ -4,10 +4,11 @@ import { createUser } from "../../store/actions/user";
 import { loginUser } from "../../store/actions/user";
 import { useAppDispatch } from "../../store/hooks";
 import { useSelector } from "react-redux";
-import "./login.css";
 import Button from "../../ui/Button/Button";
 import Modal from "../../ui/Modal/Modal";
 import Input from "../../ui/Input/Input";
+import "./login.css";
+import "./adaptiveLogin.css";
 
 const LoginPage: FC = () => {
   const [regModal, setRegModal] = useState(false);

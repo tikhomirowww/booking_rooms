@@ -1,0 +1,57 @@
+@media all and (max-width: 426px) {
+  body {
+    position: relative;
+  }
+
+  .schedule_block {
+    width: 0 !important;
+    border: 0 !important;
+  }
+
+  .schedule_table {
+    width: 0 !important;
+    height: 105% !important;
+    transition: width 0.5s ease-in-out !important;
+    background: linear-gradient(
+      273.38deg,
+      rgb(237, 198, 138) 7.24%,
+      rgb(225, 167, 130) 56.44%,
+      rgb(215, 132, 120) 92.81%
+    );
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+  }
+
+  .schedule_table.sidebar {
+    background: linear-gradient(
+      273.38deg,
+      rgb(237, 198, 138) 7.24%,
+      rgb(225, 167, 130) 56.44%,
+      rgb(215, 132, 120) 92.81%
+    );
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 70% !important;
+    height: 105%;
+  }
+
+  .svg_container {
+    display: none;
+  }
+
+  .modal_bg {
+    display: block !important;
+  }
+
+  .text_item {
+    width: 50% !important;
+  }
+
+  .user {
+    margin-left: 47px !important;
+  }
+}

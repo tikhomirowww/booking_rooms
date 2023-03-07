@@ -1,0 +1,14 @@
+@media all and (max-width: 426px) {
+  .container {
+    margin-top: 10% !important;
+  }
+
+  .rooms_main {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .rooms_block {
+    width: 80%;
+  }
+}

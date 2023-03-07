@@ -1,9 +1,16 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import Month from "../../components/Month/Month";
 import { IMeeting } from "./Meeting.types";
 import { CgCloseR } from "react-icons/cg";
 
-const Meeting: FC<IMeeting> = ({ set, state, openSchedule, closeSchedule }) => {
+const Meeting: FC<IMeeting> = ({
+  set,
+  state,
+  openSideBar,
+  closeSideBar,
+  openSchedule,
+  closeSchedule,
+}) => {
   return (
     <>
       <div
@@ -21,12 +28,13 @@ const Meeting: FC<IMeeting> = ({ set, state, openSchedule, closeSchedule }) => {
                 e.stopPropagation();
                 closeSchedule();
                 set("");
+                closeSideBar();
               }}
               className="close_btn"
             >
               <CgCloseR className="svg" />
             </div>
-            <Month />
+            <Month openSideBar={openSideBar} />
           </>
         )}
       </div>

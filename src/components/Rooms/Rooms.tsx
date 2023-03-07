@@ -5,6 +5,7 @@ import Production from "../../rooms/Production/Production";
 import Schedule from "../Schedule/Schedule";
 import "./rooms.css";
 import "../Schedule/schedule.css";
+import "./adaptiveRooms.css";
 
 const Rooms = () => {
   const [month, setMonth] = useState("");
@@ -12,10 +13,23 @@ const Rooms = () => {
 
   const openSchedule = () => {
     setOpened(true);
+    console.log("opened");
   };
 
   const closeSchedule = () => {
     setOpened(false);
+  };
+
+  // sidebar state
+  const [openedSideBar, setOpenedSideBar] = useState(false);
+
+  const openSideBar = () => {
+    setOpenedSideBar(true);
+    console.log("open sidebar");
+  };
+
+  const closeSideBar = () => {
+    setOpenedSideBar(false);
   };
 
   function render(str?: string) {
@@ -25,6 +39,8 @@ const Rooms = () => {
           <Meeting
             set={setMonth}
             state={month}
+            openSideBar={openSideBar}
+            closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
           />
@@ -34,6 +50,8 @@ const Rooms = () => {
           <Studio
             set={setMonth}
             state={month}
+            openSideBar={openSideBar}
+            closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
           />
@@ -43,6 +61,8 @@ const Rooms = () => {
           <Production
             set={setMonth}
             state={month}
+            openSideBar={openSideBar}
+            closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
           />
@@ -52,16 +72,22 @@ const Rooms = () => {
           <>
             <Meeting
               set={setMonth}
+              openSideBar={openSideBar}
+              closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
             />
             <Studio
               set={setMonth}
+              openSideBar={openSideBar}
+              closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
             />
             <Production
               set={setMonth}
+              openSideBar={openSideBar}
+              closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
             />
@@ -74,7 +100,13 @@ const Rooms = () => {
     <div className="rooms_main">
       <div className="rooms_block">{render(month)}</div>
       <div className="schedule_block">
-        <Schedule state={month} setOpenFunc={setOpened} isOpen={opened} />
+        <Schedule
+          state={month}
+          sideBar={openedSideBar}
+          closeSideBar={closeSideBar}
+          setOpenFunc={setOpened}
+          isOpen={opened}
+        />
       </div>
     </div>
   );
