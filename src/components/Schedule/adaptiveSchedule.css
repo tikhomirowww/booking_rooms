@@ -18,7 +18,7 @@
       rgb(225, 167, 130) 56.44%,
       rgb(215, 132, 120) 92.81%
     );
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 0;
     left: 0;
@@ -31,7 +31,7 @@
       rgb(225, 167, 130) 56.44%,
       rgb(215, 132, 120) 92.81%
     );
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 0;
     left: 0;
