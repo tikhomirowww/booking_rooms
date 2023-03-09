@@ -234,7 +234,7 @@ const Schedule: FC<ISchedule> = ({
     },
   ];
 
-  console.log(room[0], "room[0]");
+  console.log(room, "room[0]");
 
   return (
     <>
