@@ -20,7 +20,7 @@ const Meeting: FC<IMeeting> = ({
         }}
         className="room_item_main"
       >
-        <h3>MeetinG</h3>
+        <h3>Meet</h3>
         {state === "meeting" && (
           <>
             <div
