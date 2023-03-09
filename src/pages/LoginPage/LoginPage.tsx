@@ -73,6 +73,13 @@ const LoginPage: FC = () => {
       <div className="logo_box">
         <img src="/images/makers_logo.png" alt="error" />
       </div>
+      <img
+        src="/images/man_thumbnail.png"
+        width={200}
+        alt=""
+        className="man"
+        style={{ display: "none" }}
+      />
       <div className="login_desc">
         <h2>Register to start!</h2>
         <p>

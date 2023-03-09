@@ -7,6 +7,10 @@
     display: none;
   }
 
+  .man {
+    display: block !important;
+  }
+
   .logo_box img {
     width: 120px;
   }
