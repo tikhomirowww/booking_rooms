@@ -2,7 +2,7 @@ import { AppDispatch } from "../store";
 import axios from "axios";
 import { getRoomDetails } from "../slices/rooms";
 
-const API = "http://3.83.158.158/api/v1/";
+const API = "https://list-production.up.railway.app/api/v1/";
 
 export const getRooms =
   (day: any, month: any, year: any) => async (dispatch: AppDispatch) => {

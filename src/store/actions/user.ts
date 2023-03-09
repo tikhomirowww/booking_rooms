@@ -2,7 +2,7 @@ import { AppDispatch } from "../store";
 import axios from "axios";
 import { postUser, getUsers, setError } from "../slices/users";
 
-const API = "http://3.83.158.158/api/v1/";
+const API = "https://list-production.up.railway.app/api/v1/";
 
 const token = localStorage.getItem("tokens")
   ? JSON.parse(localStorage.getItem("tokens")!)
@@ -23,7 +23,7 @@ export const createUser =
       localStorage.setItem("tokens", JSON.stringify(res.data));
       // window.location.reload();
     } catch (e: any) {
-      dispath(setError(e.response.data.detail));
+      // dispath(setError(e.response.data.detail));
       console.log(e);
     }
 
