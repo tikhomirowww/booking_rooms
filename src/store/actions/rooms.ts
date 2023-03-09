@@ -75,7 +75,7 @@ export const deleteHour =
 
       dispatch(getRoomDetails({ data }));
     } catch (e) {
-      alert("You con not delete another user!");
+      alert("You can not delete another user!");
       console.log(e);
     }
   };
