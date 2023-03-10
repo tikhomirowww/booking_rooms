@@ -178,6 +178,7 @@ const Schedule: FC<ISchedule> = ({
   changeRoom();
 
   const [hour, setHour] = useState("");
+  const [del, setDel] = useState("");
 
   const addHour = (item: any) => {
     dispatch(createHour(room[0].id, item.hour));
@@ -185,7 +186,14 @@ const Schedule: FC<ISchedule> = ({
 
     setTimeout(() => {
       setHour("");
-    }, 1500);
+    }, 1000);
+  };
+
+  const removeHour = (item: any) => {
+    dispatch(deleteHour(room[0].id, item.hour));
+    setDel(item.hour);
+
+    setDel("");
   };
 
   const oneRoom = room[0] || {};
@@ -295,11 +303,13 @@ const Schedule: FC<ISchedule> = ({
                   />
                 )}
               </div>
-              {item.user ? (
+              {item.hour == del ? (
+                <ClockLoader size={30} />
+              ) : item.user ? (
                 <RiDeleteBin6Line
                   className="svg"
                   onClick={() => {
-                    dispatch(deleteHour(room[0].id, item.hour));
+                    removeHour(item);
                   }}
                 />
               ) : (
