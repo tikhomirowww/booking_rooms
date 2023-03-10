@@ -11,6 +11,7 @@ import { CgCloseR } from "react-icons/cg";
 import { AiOutlineDownSquare } from "react-icons/ai";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { ClockLoader } from "react-spinners";
 import "./adaptiveSchedule.css";
 import "./schedule.css";
 
@@ -175,6 +176,18 @@ const Schedule: FC<ISchedule> = ({
     }
   };
   changeRoom();
+
+  const [hour, setHour] = useState("");
+
+  const addHour = (item: any) => {
+    dispatch(createHour(room[0].id, item.hour));
+    setHour(item.hour);
+
+    setTimeout(() => {
+      setHour("");
+    }, 1500);
+  };
+
   const oneRoom = room[0] || {};
   const li = [
     {
@@ -234,8 +247,6 @@ const Schedule: FC<ISchedule> = ({
     },
   ];
 
-  console.log(room, "room[0]");
-
   return (
     <>
       {sideBar && (
@@ -271,12 +282,14 @@ const Schedule: FC<ISchedule> = ({
             <div key={item.hour} className="hour_item">
               <div className="text_item">
                 <h3>{item.text}</h3>
-                {item.user ? (
+                {item.hour == hour ? (
+                  <ClockLoader size={30} />
+                ) : item.user ? (
                   <div className="user">{item.user}</div>
                 ) : (
                   <IoIosAddCircleOutline
                     onClick={() => {
-                      dispatch(createHour(room[0].id, item.hour));
+                      addHour(item);
                     }}
                     className="svg"
                   />
