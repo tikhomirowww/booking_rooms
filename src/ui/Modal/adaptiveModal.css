@@ -1,4 +1,4 @@
-@media all and (max-width: 426px) {
+@media all and (max-width: 500px) {
   .modal {
     width: 60% !important;
   }
