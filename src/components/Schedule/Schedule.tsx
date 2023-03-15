@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { useSelector } from "react-redux";
-import arrow from "../../icons/arrow.png";
-import close from "../../icons/close.png";
+import { getRoomDetails } from "../../store/slices/rooms";
 import ISchedule from "./Schedule.types";
 import { fetchUsers } from "../../store/actions/user";
 import { MeetingType, ProductionType, StudioType } from "./Schedule.types";
@@ -197,6 +196,7 @@ const Schedule: FC<ISchedule> = ({
   };
 
   const oneRoom = room[0] || {};
+
   const li = [
     {
       text: "10:00",
@@ -259,7 +259,10 @@ const Schedule: FC<ISchedule> = ({
     <>
       {sideBar && (
         <div
-          onClick={closeSideBar}
+          onClick={() => {
+            closeSideBar();
+            dispatch(getRoomDetails({}));
+          }}
           style={{ display: "none" }}
           className="modal_bg"
         ></div>
@@ -272,6 +275,7 @@ const Schedule: FC<ISchedule> = ({
             onClick={() => {
               setOpenFunc((pre: boolean) => !pre);
               closeSideBar();
+              dispatch(getRoomDetails({}));
             }}
           >
             {isOpen ? (
