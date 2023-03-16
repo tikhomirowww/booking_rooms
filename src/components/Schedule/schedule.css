@@ -101,3 +101,9 @@
 .hour_item:nth-child(odd) {
   background-color: lightsteelblue;
 }
+
+.loader {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}

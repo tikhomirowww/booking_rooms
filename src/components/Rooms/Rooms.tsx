@@ -32,6 +32,20 @@ const Rooms = () => {
     setOpenedSideBar(false);
   };
 
+  //loading
+  const [loader, setLoader] = useState(false);
+  console.log(loader, "loader");
+
+  const turnLoader = () => {
+    setLoader(true);
+    console.log(loader, "loader first");
+
+    setTimeout(() => {
+      setLoader(false);
+      console.log(loader);
+    }, 1500);
+  };
+
   function render(str?: string) {
     switch (str) {
       case "meeting":
@@ -43,6 +57,7 @@ const Rooms = () => {
             closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
+            turnLoader={turnLoader}
           />
         );
       case "studio":
@@ -54,6 +69,7 @@ const Rooms = () => {
             closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
+            turnLoader={turnLoader}
           />
         );
       case "production":
@@ -65,6 +81,7 @@ const Rooms = () => {
             closeSideBar={closeSideBar}
             openSchedule={openSchedule}
             closeSchedule={closeSchedule}
+            turnLoader={turnLoader}
           />
         );
       default:
@@ -76,6 +93,7 @@ const Rooms = () => {
               closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
+              turnLoader={turnLoader}
             />
             <Studio
               set={setMonth}
@@ -83,6 +101,7 @@ const Rooms = () => {
               closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
+              turnLoader={turnLoader}
             />
             <Production
               set={setMonth}
@@ -90,6 +109,7 @@ const Rooms = () => {
               closeSideBar={closeSideBar}
               openSchedule={openSchedule}
               closeSchedule={closeSchedule}
+              turnLoader={turnLoader}
             />
           </>
         );
@@ -106,6 +126,7 @@ const Rooms = () => {
           closeSideBar={closeSideBar}
           setOpenFunc={setOpened}
           isOpen={opened}
+          loader={loader}
         />
       </div>
     </div>

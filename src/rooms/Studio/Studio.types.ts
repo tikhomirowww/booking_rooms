@@ -5,4 +5,5 @@ export default interface IStudio {
   closeSchedule: () => void;
   openSideBar: () => void;
   closeSideBar: () => void;
+  turnLoader: () => void;
 }

@@ -11,6 +11,7 @@ import { AiOutlineDownSquare } from "react-icons/ai";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ClockLoader } from "react-spinners";
+import { InfinitySpin } from "react-loader-spinner";
 import "./adaptiveSchedule.css";
 import "./schedule.css";
 
@@ -20,6 +21,7 @@ const Schedule: FC<ISchedule> = ({
   isOpen,
   sideBar,
   closeSideBar,
+  loader,
 }) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -286,42 +288,47 @@ const Schedule: FC<ISchedule> = ({
           </div>
           <h3>Schedule</h3>
         </div>
-
-        <div
-          className={`accordion-content ${isOpen || sideBar ? "opened" : ""}`}
-        >
-          {li.map((item: any) => (
-            <div key={item.hour} className="hour_item">
-              <div className="text_item">
-                <h3>{item.text}</h3>
-                {item.hour == hour ? (
+        {loader ? (
+          <div className="loader">
+            <InfinitySpin width="200" color="black" />
+          </div>
+        ) : (
+          <div
+            className={`accordion-content ${isOpen || sideBar ? "opened" : ""}`}
+          >
+            {li.map((item: any) => (
+              <div key={item.hour} className="hour_item">
+                <div className="text_item">
+                  <h3>{item.text}</h3>
+                  {item.hour == hour ? (
+                    <ClockLoader size={30} />
+                  ) : item.user ? (
+                    <div className="user">{item.user}</div>
+                  ) : (
+                    <IoIosAddCircleOutline
+                      onClick={() => {
+                        addHour(item);
+                      }}
+                      className="svg"
+                    />
+                  )}
+                </div>
+                {item.hour == del ? (
                   <ClockLoader size={30} />
                 ) : item.user ? (
-                  <div className="user">{item.user}</div>
-                ) : (
-                  <IoIosAddCircleOutline
-                    onClick={() => {
-                      addHour(item);
-                    }}
+                  <RiDeleteBin6Line
                     className="svg"
+                    onClick={() => {
+                      removeHour(item);
+                    }}
                   />
+                ) : (
+                  ""
                 )}
               </div>
-              {item.hour == del ? (
-                <ClockLoader size={30} />
-              ) : item.user ? (
-                <RiDeleteBin6Line
-                  className="svg"
-                  onClick={() => {
-                    removeHour(item);
-                  }}
-                />
-              ) : (
-                ""
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

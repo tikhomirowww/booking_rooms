@@ -5,4 +5,5 @@ export interface IProduction {
   closeSchedule: () => void;
   openSideBar: () => void;
   closeSideBar: () => void;
+  turnLoader: () => void;
 }

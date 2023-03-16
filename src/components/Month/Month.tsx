@@ -8,7 +8,7 @@ import "./month.css";
 import "./adaptiveMonth.css";
 import { IMonth } from "./Month.types";
 
-const Month: FC<IMonth> = ({ openSideBar }) => {
+const Month: FC<IMonth> = ({ openSideBar, turnLoader }) => {
   const dispatch = useAppDispatch();
 
   const date = new Date();
@@ -46,6 +46,7 @@ const Month: FC<IMonth> = ({ openSideBar }) => {
           setSelected(value);
           dispatch(getRoomDetails({}));
           openSideBar();
+          turnLoader();
         }}
       />
     </div>

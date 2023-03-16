@@ -10,6 +10,7 @@ const Meeting: FC<IMeeting> = ({
   closeSideBar,
   openSchedule,
   closeSchedule,
+  turnLoader,
 }) => {
   return (
     <>
@@ -34,7 +35,7 @@ const Meeting: FC<IMeeting> = ({
             >
               <CgCloseR className="svg" />
             </div>
-            <Month openSideBar={openSideBar} />
+            <Month turnLoader={turnLoader} openSideBar={openSideBar} />
           </>
         )}
       </div>

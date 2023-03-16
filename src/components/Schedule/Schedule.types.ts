@@ -5,6 +5,7 @@ export default interface ISchedule {
   isOpen: boolean;
   sideBar: boolean;
   closeSideBar: () => void;
+  loader: boolean;
 }
 
 export type MeetingType = {

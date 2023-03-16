@@ -5,4 +5,5 @@ export interface IMeeting {
   closeSchedule: () => void;
   openSideBar: () => void;
   closeSideBar: () => void;
+  turnLoader: () => void;
 }

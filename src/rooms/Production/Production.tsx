@@ -10,6 +10,7 @@ const Production: FC<IProduction> = ({
   openSideBar,
   openSchedule,
   closeSchedule,
+  turnLoader,
 }) => {
   return (
     <div
@@ -32,7 +33,7 @@ const Production: FC<IProduction> = ({
           >
             <CgCloseR className="svg" />
           </div>
-          <Month openSideBar={openSideBar} />
+          <Month turnLoader={turnLoader} openSideBar={openSideBar} />
         </>
       )}
     </div>

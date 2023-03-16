@@ -9,6 +9,7 @@ const Studio: FC<IStudio> = ({
   openSideBar,
   openSchedule,
   closeSchedule,
+  turnLoader,
 }) => {
   return (
     <div
@@ -31,7 +32,7 @@ const Studio: FC<IStudio> = ({
           >
             <CgCloseR className="svg" />
           </div>
-          <Month openSideBar={openSideBar} />
+          <Month turnLoader={turnLoader} openSideBar={openSideBar} />
         </>
       )}
     </div>
